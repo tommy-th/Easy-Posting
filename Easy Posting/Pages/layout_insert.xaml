@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Easy_Posting.Content.layout_insert"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"    
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="Auto" Height="Auto" ScrollViewer.CanContentScroll="True" Unloaded="UserControl_Unloaded">
+    <DockPanel LastChildFill="True" Margin="20,0">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,20,0,0">
+            <mui:ModernButton Margin="20,12,0,0" EllipseDiameter="40" EllipseStrokeThickness="0" IconWidth="40" IconHeight="40" IconData ="M47.368618,37.013066L47.368618,50.052014 65.287285,50.052014 65.287285,37.013066z M46.780037,28.874999L65.875862,28.874999C67.022926,28.874999,67.954002,29.757796,67.954002,30.846392L67.954002,51.294209C67.954002,52.382702,67.022926,53.263001,65.875862,53.263001L46.780037,53.263001C45.630371,53.263001,44.702,52.382702,44.702,51.294209L44.702,30.846392C44.702,29.757796,45.630371,28.874999,46.780037,28.874999z M2.6666164,11.672109L2.6666164,50.856438 36.825413,50.856438 36.825413,11.672109z M47.368618,8.0183092L47.368618,21.057398 65.287285,21.057398 65.287285,8.0183092z M2.0774996,0.39099983L37.411308,0.39099983C38.561005,0.39099939,39.492001,1.3441105,39.492001,2.5212131L39.492001,51.39293C39.492001,52.569913,38.561005,53.522999,37.411308,53.522999L2.0774996,53.522999C0.92980528,53.522999,0,52.569913,0,51.39293L0,2.5212131C0,1.3441105,0.92980528,0.39099939,2.0774996,0.39099983z M46.780037,0L65.875862,0C67.022926,-5.9604645E-07,67.954002,0.85937437,67.954002,1.9167494L67.954002,21.804698C67.954002,22.864598,67.022926,23.723998,65.875862,23.723998L46.780037,23.723998C45.630371,23.723998,44.702,22.864598,44.702,21.804698L44.702,1.9167494C44.702,0.85937437,45.630371,-5.9604645E-07,46.780037,0z" />
+            <Label Content="레이아웃" FontSize="25" Margin="10,10,0,0" VerticalAlignment="Center" FontWeight="Thin" Background="{x:Null}"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="22,10,0,10">
+            <ComboBox x:Name="layoutselect" Width="131" Text="레이아웃" IsEnabled="False" ScrollViewer.CanContentScroll="False" />
+            <ComboBox x:Name="imageselect" Width="131" Text="이미지" Margin="10,0,0,0" />
+            <mui:ModernButton x:Name="insert" Click="insert_Click" Margin="10,0,00,0" EllipseDiameter="29" EllipseStrokeThickness="2" IconWidth="19" IconHeight="19" IconData="M30.981743,12.945001C32.958164,15.091092 34.18758,17.981715 36.073002,20.218911 33.43367,23.349145 29.91283,25.597939 27.927008,29.382001 22.593748,29.382001 17.260286,29.382001 11.926826,29.382001 11.447721,29.161893 12.31743,28.458861 12.654735,28.073346 15.312465,25.025115 18.570202,21.479264 21.236832,18.326831 22.460846,19.429778 23.62476,20.593827 24.726572,21.817778 26.851696,18.899754 28.91662,15.921728 30.981743,12.945001z M52.809662,12.166054C53.604832,12.150979 54.469582,12.296944 55.418102,12.654638 58.260448,13.726239 60.656387,17.675443 59.05476,21.526946 58.401051,23.096049 56.729221,24.433249 55.272099,25.89025 52.887859,28.275754 49.768208,31.395556 47.273464,33.89026 45.78614,35.375962 44.08831,37.417661 42.472485,37.671563 39.370831,38.161164 36.663486,35.851262 37.381199,32.290059 37.773304,30.348655 41.541267,27.258653 42.908592,25.89025 45.180729,23.61815 47.14056,21.874747 48.872192,19.926745 49.829506,20.521846 50.605419,21.296647 51.200329,22.254847 48.74469,24.65985 45.564934,27.743153 42.616985,30.689856 41.877373,31.430556 40.041245,32.866856 40.581753,33.89026 41.668869,35.95416 44.438519,32.069959 44.945126,31.563657 47.398266,29.109054 50.107811,26.400752 52.653553,23.853848 54.161381,22.346047 56.812626,21.015246 56.290516,18.036044 55.983009,16.282241 54.187481,15.336941 52.653553,15.417641 50.700321,15.521841 48.886593,18.166343 47.70797,19.344745 44.765423,22.287448 41.765373,25.28745 38.835423,28.218553 36.739189,30.314855 33.163429,32.611756 34.618351,36.944962 35.521767,39.637765 39.210629,41.787465 42.616985,39.999665 45.275829,38.603864 48.555786,33.920358 50.763123,32.145558 53.489468,29.538754 56.156315,26.872052 58.763256,24.145549 58.805958,24.549251 61.067696,25.805652 61.090996,26.326552 61.093895,26.400752 59.686073,27.877353 59.05476,28.508655 55.4869,32.076558 52.377548,35.18456 48.872192,38.689862 46.299248,41.262868 42.554485,45.52057 36.799088,43.344769 32.63892,41.770566 29.114059,35.72236 32.291115,30.399455 33.213028,28.853854 35.140362,27.258653 36.508682,25.89025 39.254829,23.144149 42.37458,20.170346 45.236729,17.309543 47.224709,15.320703 49.36393,12.231382 52.809662,12.166054z M15.445452,8.9833631C17.778652,8.9513692 20.272869,11.04493 19.200897,14.255569 18.013659,17.809159 11.38575,17.266129 11.636957,12.509276 11.72686,10.823187 12.64629,9.3438577 14.982063,9.0184011 15.135075,8.9970759 15.289906,8.9854955 15.445452,8.9833631z M0,0L51.513,0 51.513,9.3709067 51.424938,9.3842277C49.520111,9.7140283,47.972549,10.646589,46.680016,11.727191L46.567421,11.825105 46.567421,5.0913495 5.1637988,5.0913495 5.1637988,33.930058 28.190599,33.930058 28.165539,34.282658C28.102661,35.735753,28.320993,37.212644,28.825649,38.66013L29.018158,39.167001 0,39.167001z" />
+            <!--Button x:Name="insert" Width="130" Content="이미지 찾기" Click="insert_Click" Margin="10,0,0,0"/-->
+            <mui:ModernButton x:Name="layoutinsertclose" Click="layout_insert_Click" Margin="10,0,10,0" EllipseDiameter="29" EllipseStrokeThickness="2" IconWidth="19" IconHeight="19" IconData="F1M0,110L47.6667,62 102,117.333 218.667,0 266,48 102,212.333 0,110z" />
+            <!--Button x:Name="layoutinsertclose" Width="130" Content="에디터에 삽입" Click="layout_insert_Click" Margin="10,0,0,0"/-->
+        </StackPanel>
+        <Grid Margin="0,10,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="80*" />
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="Layouts" Grid.Column="0" HorizontalAlignment="Center">
+                <ListBoxItem Selected="layout1_Selected">
+                    <Image x:Name="layout1" Height="90" Width="140" Stretch="UniformToFill" />
+                </ListBoxItem>
+                <ListBoxItem Selected="layout2_Selected">
+                    <Image x:Name="layout2"  Height="90" Width="140" Stretch="UniformToFill" />
+                </ListBoxItem>
+                <ListBoxItem Selected="layout3_Selected">
+                    <Image x:Name="layout3"  Height="90" Width="140" Stretch="UniformToFill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="art_Selected">
+                    <Image x:Name="art"  Height="90" Width="140" Stretch="UniformToFill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="book_Selected">
+                    <Image x:Name="book" HorizontalAlignment="Left" Height="90" Width="140" Stretch="Fill" />
+                </ListBoxItem>
+                <ListBoxItem Selected="cook_Selected">
+                    <Image x:Name="cook" HorizontalAlignment="Left" Height="90" Width="140" Stretch="Fill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="drama_Selected">
+                    <Image x:Name="drama" HorizontalAlignment="Left" Height="90" Width="140"  Stretch="Fill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="movie_Selected">
+                    <Image x:Name="movie" HorizontalAlignment="Left" Height="90" Width="140"  Stretch="Fill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="music_Selected">
+                    <Image x:Name="music" HorizontalAlignment="Left" Height="90" Width="140"  Stretch="Fill" />
+                </ListBoxItem>
+                <ListBoxItem Selected="restaurant_Selected">
+                    <Image x:Name="restaurant" HorizontalAlignment="Left" Height="90" Width="140"  Stretch="Fill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="review_Selected">
+                    <Image x:Name="review" HorizontalAlignment="Left" Height="90" Width="140"  Stretch="Fill"/>
+                </ListBoxItem>
+                <ListBoxItem Selected="tour_Selected">
+                    <Image x:Name="tour" HorizontalAlignment="Left" Height="90" Width="140" Stretch="Fill" />
+                </ListBoxItem>
+            </ListBox>
+            <WindowsFormsHost Grid.Column="1">
+                <wf:WebBrowser x:Name="LayoutBrowse"/>
+            </WindowsFormsHost>
+        </Grid>
+    </DockPanel>
+</UserControl>

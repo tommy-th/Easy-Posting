@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Easy_Posting.Content.image_search"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"             
+             mc:Ignorable="d" Height="Auto" Width="Auto" >
+    <DockPanel LastChildFill="True">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" DockPanel.Dock="Top" Margin="10,20,0,10">
+                <mui:ModernButton Margin="20,12,0,0" EllipseDiameter="40" EllipseStrokeThickness="0" IconWidth="40" IconHeight="40" IconData ="M32.335703,36.110165C36.96868,36.132984 40.761462,38.731339 40.995764,42.182522 41.245688,45.873787 37.346884,49.134907 32.308432,49.475021 27.259982,49.81514 22.961302,47.114212 22.711378,43.422947 22.461455,39.741684 26.35026,36.480564 31.398711,36.14045 31.71424,36.118568 32.026839,36.108643 32.335703,36.110165z M30.550867,10.890403C33.225726,10.924993 35.923548,13.490879 36.929625,17.174557 38.079432,21.394474 36.569685,25.464394 33.560198,26.284376 30.550711,27.104361 27.191283,24.354414 26.041478,20.144497 24.901673,15.934581 26.401417,11.854661 29.410904,11.034678 29.787091,10.93218 30.168744,10.885462 30.550867,10.890403z M32.703711,8.7392378C32.703711,8.7392378 20.312317,9.0392609 20.312317,19.528347 20.312317,30.007425 31.143479,28.797569 31.143479,28.797569L31.143479,31.457373C31.143479,32.527229 32.593714,32.167275 32.773665,34.337132 32.043604,34.337132 17.732075,33.967167 17.732075,43.456341 17.732075,52.955521 30.343462,52.49548 30.343462,52.49548 30.343462,52.49548 44.935049,53.165466 44.935049,41.366432 44.935049,34.307102 36.61418,32.027271 36.61418,29.17754 36.61418,26.32781 42.884776,25.497805 42.884776,18.808439 42.884776,14.788765 42.514738,12.36893 39.344462,10.939121 39.344462,9.9492169 44.935049,10.599185 44.935049,8.7392378z M7.0808653,0L55.57625,0C59.496607,2.0224979E-07,62.667002,3.169771,62.667002,7.0894771L62.667002,52.135525C62.667002,56.055229,59.496607,59.225002,55.57625,59.225002L7.0808653,59.225002C3.1703965,59.225002,0,56.055229,0,52.135525L0,7.0894771C0,3.169771,3.1703965,2.0224979E-07,7.0808653,0z" />
+                <Label Content="이미지 검색" FontSize="25" Margin="10,10,0,0" VerticalAlignment="Center" FontWeight="Thin" Background="{x:Null}"/>
+                <!--Label Content="Google Image Search" FontSize="30" Margin="10,5,0,0" VerticalAlignment="Center" FontWeight="ExtraLight" Background="{x:Null}"/-->
+                <!--TextBlock Text="Google Image Search" Style="{StaticResource Heading1}" Margin="15,10,0,0"/-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="30,0,0,0">
+                <TextBox x:Name="serch_text" Width="200" KeyDown="serch_KeyDown"/>
+                <mui:ModernButton x:Name="serch" Click="serch_Click" Margin="10,0,0,0" EllipseDiameter="29" EllipseStrokeThickness="2" IconWidth="19" IconHeight="19" IconData="F1M-185.925,-2026.96L-203.062,-2048.74C-197.485,-2056.51 -197.433,-2067.31 -203.64,-2075.2 -211.167,-2084.76 -225.019,-2086.42 -234.588,-2078.89 -244.154,-2071.36 -245.808,-2057.51 -238.282,-2047.94 -231.986,-2039.95 -221.274,-2037.5 -212.337,-2041.31L-195.262,-2019.61 -185.925,-2026.96z M-231.201,-2053.51C-235.653,-2059.17 -234.674,-2067.36 -229.02,-2071.81 -223.36,-2076.26 -215.169,-2075.29 -210.721,-2069.63 -206.269,-2063.97 -207.245,-2055.78 -212.902,-2051.33 -218.559,-2046.88 -226.752,-2047.86 -231.201,-2053.51z"/>
+                <!--Button x:Name="serch" Content="검색" Width="70" Click="serch_Click" Margin="10,0,0,0" /-->
+                <mui:ModernButton x:Name="insert" Click="insert_Click" Margin="10,0,0,0" EllipseDiameter="29" EllipseStrokeThickness="2" IconWidth="19" IconHeight="19" IconData="F1M0,110L47.6667,62 102,117.333 218.667,0 266,48 102,212.333 0,110z" />
+                <!--Button x:Name="insert" Content="이미지 삽입" Width="130" Margin="10,0,0,0" Click="insert_Click" /-->
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <ListBox x:Name="ImageListbox" ItemsSource="{Binding}" Background="AliceBlue" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseLeftButtonDown="ImageListbox_PreviewMouseLeftButtonDown" >
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem"></Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</UserControl>

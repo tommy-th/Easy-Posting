@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Easy_Posting.Content.SettingsAppearance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel x:Name="Panel" MinWidth="150">
+                <!--TextBlock Text="스킨 설정" Style="{StaticResource Heading2}" Margin="0,0,0,8" /-->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <mui:ModernButton Margin="20,0,0,0" EllipseDiameter="40" EllipseStrokeThickness="0" IconWidth="40" IconHeight="40" IconData ="F1M65.7861,33.6147C65.7861,33.6147 65.8955,24.9741 52.178,27.8386 52.178,27.8386 44.2256,27.6199 50.7194,17.9038 50.7194,17.9038 61.3564,2.02344 43.8297,1.39453 43.8297,1.39453 16.7217,7.99097 7.09991,31.387 7.09991,31.387 0,48.4297 11.1617,57.9194 11.1617,57.9194 25.1338,69.1133 52.5762,54.0613 52.5762,54.0613 68.3167,43.5315 65.7861,33.6147z M20.8633,42.2878C20.4886,43.9141 18.8701,44.926 17.2435,44.5547 15.6182,44.1824 14.6012,42.5625 14.9762,40.939 15.348,39.3125 16.9622,38.2969 18.5928,38.668 20.2161,39.0405 21.2347,40.6641 20.8633,42.2878z M27.9014,28.7476C27.3961,30.9624 25.1852,32.3516 22.9674,31.8425 20.7535,31.3335 19.3675,29.1265 19.8727,26.905 20.3824,24.6953 22.5895,23.3047 24.8069,23.8098 27.0228,24.323 28.4111,26.53 27.9014,28.7476z M42.5439,18.5156C41.9371,21.176 39.2832,22.8386 36.6253,22.2292 33.96,21.625 32.3008,18.9727 32.9078,16.3086 33.5162,13.6499 36.1689,11.9871 38.8284,12.5952 41.4886,13.2034 43.1523,15.853 42.5439,18.5156z" />
+                    <Label Content="스킨 설정" FontSize="25" Margin="10,10,0,0" VerticalAlignment="Center" FontWeight="Thin" Background="{x:Null}" BorderThickness="0,0,0,10"/>
+                </StackPanel>
+                <ListBox ItemsSource="{Binding AccentColors}"
+                         SelectedItem="{Binding SelectedAccentColor, Mode=TwoWay}"
+                         Margin="0,0,0,16">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=Panel}" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Width="40" Height="40" Margin="2" >
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="Brush" Color="{Binding}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="스킨:" VerticalAlignment="Center" Margin="0,0,16,4" />
+                    <ComboBox Grid.Column="1" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" DisplayMemberPath="DisplayName" VerticalAlignment="Center" Margin="0,0,0,4" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

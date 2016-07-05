@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 ; overflow:hidden; scroll:no;}
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+		src = "http://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    <script type="text/javascript">
+     var geocoder;
+	 var map;
+	 function initialize() {
+	 geocoder = new google.maps.Geocoder();	 
+        var mapOptions = {
+          center: new google.maps.LatLng(36.355,127.289),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+		  panControl: false,
+		  streetViewControl : false,
+		  mapTypeControl: false
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+      }
+	  
+	 var address;	
+	 function codeAddress(address) {
+	 var results=[];
+	  
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+	  var mapOptions = {
+	  center: results[0].geometry.location,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+panControl: false,
+		  streetViewControl : false,
+		  mapTypeControl: false		  
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+	  
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });		
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+	  
+	  
+	  
+    });  
+  }
+   
+    </script>
+  </head>
+  <body scroll="no" onload="initialize()">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+  </body>
+</html>
